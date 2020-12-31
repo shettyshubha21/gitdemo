@@ -1,0 +1,148 @@
+.DisplayWeather {
+    margin-top: 120px;  
+}
+
+.Name {
+    margin-left:120px ;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.icon {
+    margin-left: 700px;
+    margin-top: 60px;
+}
+
+.img {
+    height: 100px;
+    width: 100px;
+    margin-top: -10px;
+}
+
+.degree {
+    margin-left: 700px;
+    margin-top: -63px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 69px;
+    font-weight: 530;
+}
+
+.description {
+    margin-left: 710px;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    margin-top: -38px;
+} 
+
+.error {
+    position: fixed;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 210px;
+    width: 458px;
+    border-radius: 2px;
+    margin-top: 430px;
+    margin-left: 550px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.line {
+    margin-left: 100px;
+    width: 1300px;
+    background-color: #FFFFFF;
+    border: 0.5px solid #FFFFFF;
+    margin-top: 60px;
+    opacity: 0.3;
+}
+
+
+
+/* footer */
+.icons {
+    position: fixed;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+   
+}
+
+.firstIcon{
+   
+    margin-left: 185px;
+    margin-top: 20px;
+}
+
+.secondIcon{
+    font-size: 40px;
+    margin-left: 120px;
+    margin-top: 7px;
+}
+
+.thirdIcon{
+    font-size: 40px;
+    margin-left: 120px;
+    margin-top: 2px;
+}
+
+.fourthIcon{
+    font-size: 40px;
+    margin-left: 120px;
+    margin-top: 1px;
+}
+
+.fifthIcon{
+    margin-left: 120px;
+    margin-top: 4px;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.icons span {
+    font-size: 22px;
+    font-weight: 500;
+} 
+
+.toggle {
+    margin-left: 790px;
+    margin-top: 9px;
+}
+
+.btn {
+    transition: all 0.4s linear;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #fff;
+    width: 28px;
+    height: 30px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.Active {
+    color: red;
+    background-color: white;
+    border: none;
+    outline: none;
+}
+ 
+.btnF {
+    border-radius: 0 2px 2px 0;
+}
+
+.btnC {
+    border-radius: 2px 0px 0px 2px;
+}

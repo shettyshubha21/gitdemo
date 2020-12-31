@@ -1,0 +1,155 @@
+.Favourite {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 100px;
+}
+
+.message {
+    text-align: center;
+    margin-top: 340px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.image {
+    margin-left: 660px;
+    margin-top: -90px;
+    background: url('/src/images/icon_nothing.png') no-repeat center center/cover;
+    height: 84px;
+    width: 159px;
+}
+
+.display {
+    margin-left: 100px;
+    height: 73px;
+    width: 1300px;
+     margin-top: 2px;
+    background-color: rgba(255, 255, 255,0.2);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   
+}
+
+.name {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-left: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1px;
+}
+
+.sup {
+    font-size: 16px;
+    margin-left: 12px ;
+}
+
+.celcius {
+    margin-top: -21px;
+    margin-left: 55px;
+    font-size: 16px;
+}
+
+.photo {
+    margin-top: -6px;
+}
+
+.degree {
+    margin-top: 16px;
+    margin-left: 25px;
+    font-size: 32px;
+  font-weight: 600;
+}
+
+.sup{
+    font-size: 16px;
+}
+
+.description {
+    margin-left: 25px;
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+.favIcon {
+    margin-top: 30px;
+    color: #FFD639;
+    font-size: 20px;
+    margin-right: 50px;
+}
+
+.display:hover {
+    background-color: rgba(255, 255, 255,0.3);
+}
+
+.removeAll {
+    margin-top: -20px;
+    margin-left: 120px;
+    margin-right: 135px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.removeButton {
+    margin-right: 10px;
+    background: none;
+    border: none;
+    color: white;
+}
+
+
+
+.searchField {
+    margin-top: -40px;
+    margin-left: 900px;
+}
+
+.searchField input {
+    box-sizing: border-box;
+    Height: 45px;
+    Width: 503px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    padding: 15px;
+    font-size: 16px;
+    color: #fff;
+    margin-top: 2px;
+}
+
+.searchField button {
+    position: absolute;
+    top: 53px;
+    right: 145px;
+    background: transparent;
+    border: none;
+    font-size: 23px;
+    color: #fff;
+    font-weight: bolder;
+}
+
+.input:focus {
+    outline: none;
+    border:1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cityNumber {
+    margin-top: 15px;
+}
+
+.favText {
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 35px;
+}
