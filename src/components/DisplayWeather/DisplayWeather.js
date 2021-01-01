@@ -11,11 +11,11 @@ import icon4 from '../icons/visibility.png'
 import icon5 from '../icons/wind.png'
 
 
-const  DisplayWeather = ({data}) => {
-  const [degree, setDegree] = useState(true);
+const  DisplayWeather = ({data, degrees, setDegrees}) => {
   
-  const buttonClasses = cn(styles.btn,styles.btnC, {[styles.Active]: degree});
-  const buttonClass = cn(styles.btn, styles.btnF, {[styles.Active]: !degree});
+  
+  const buttonClasses = cn(styles.btn,styles.btnC, {[styles.Active]: degrees});
+  const buttonClass = cn(styles.btn, styles.btnF, {[styles.Active]: !degrees});
 
   function titleCase(str) {
     var splitStr = str.toLowerCase().split(' ');
@@ -47,11 +47,11 @@ const  DisplayWeather = ({data}) => {
               </div>
               
               <div className={styles.toggle}>
-                <button onClick={() => { setDegree(true); console.log(degree)}} className={buttonClasses} ><sup>o</sup>C</button>
-                <button onClick={() => { setDegree(false); console.log(degree)}} className={buttonClass}><sup>o</sup>F</button>
+                <button onClick={() => { setDegrees(true); console.log(degrees)}} className={buttonClasses} ><sup>o</sup>C</button>
+                <button onClick={() => { setDegrees(false); console.log(degrees)}} className={buttonClass}><sup>o</sup>F</button>
               </div>
 
-              {degree? <h1 className={styles.degree}>
+              {degrees? <h1 className={styles.degree}>
                 {Math.floor(data.main.temp)}
               </h1> : <h1 className={styles.degree}>
                 {Math.floor((data.main.temp * 1.8) + 32)}
@@ -74,7 +74,7 @@ const  DisplayWeather = ({data}) => {
               </div>
               <div className={styles.text}>
                   Min-Max
-                  <span>{Math.floor(data.main.temp_min)}<sup>o</sup>-{Math.floor(data.main.temp_max)}<sup>o</sup></span>
+                  <span>{degrees? Math.floor(data.main.temp_min) : Math.floor((data.main.temp_min * 1.8) + 32)}<sup>o</sup>-{ degrees ? Math.floor(data.main.temp_max) : Math.floor((data.main.temp_max * 1.8) + 32)}<sup>o</sup></span>
               </div>
               <div className={styles.secondIcon}>
                 <img src={icon2}></img>
@@ -102,7 +102,7 @@ const  DisplayWeather = ({data}) => {
               </div>  
               <div className={styles.text}>
                   Visibility
-                  <span>{Math.floor(data.visibility)} mph</span>
+                  <span>{Math.floor(data.visibility)/1000} km</span>
               </div>  
           </div> 
           </div>

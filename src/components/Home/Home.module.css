@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    
 }
 
 .line {
@@ -13,10 +14,27 @@
     margin-top: 400px;
 }
 
+.logo{
+    margin-left: 100px ;
+        background: url('/src/images/logo_web.png') no-repeat center center/cover;
+        height: 30px;
+        width: 150px;
+        margin-top: -100px; 
+}
 
 .searchField {
-    margin-top: -40px;
+    margin-top: -45px;
     margin-left: 900px;
+    display: flex;
+    flex-direction: row;
+   
+     /*    margin-left: 100px ;
+        background: url('/src/images/logo_web.png') no-repeat center center/cover; */
+        
+        
+      
+        
+      
 }
 
 .searchField input {

@@ -5,7 +5,7 @@ import { HiSearch } from "react-icons/hi";
 import Modal from '../Modal/Modal';
 import { useHistory } from "react-router-dom";
 
-const Favourite = ({favInfo, setFavInfo, setSelectedIndex}) => {
+const Favourite = ({favInfo, setFavInfo, setSelectedIndex, degrees,setDegrees, weatherData, handleChange, form, setForm}) => {
 
   function titleCase(str) {
     var splitStr = str.toLowerCase().split(' ');
@@ -18,18 +18,27 @@ const Favourite = ({favInfo, setFavInfo, setSelectedIndex}) => {
     return splitStr.join(' '); 
  }
 
+ const handleClick  = async (e, city) => {
+  await setForm({city:city});
+  console.log(city);
+  weatherData(e, city);
+  history.push("/");
+}
+
   const [show,setShow] = useState(false);
   let history = useHistory();
   return (
   <div>
-    <div className={styles.home}>
+    <div >
+    <div className={styles.logo}></div>
     <form className={styles.searchField}>
         <input
           type="text"
           placeholder="Search city"
           name="city"
+          onChange={(e) => handleChange(e)}
         />
-        <button onClick={()=>{history.push('/')} } >
+        <button onClick={(e)=>{history.push('/'); weatherData(e)} } >
           {< HiSearch/>}
         </button>
       </form>
@@ -52,20 +61,15 @@ const Favourite = ({favInfo, setFavInfo, setSelectedIndex}) => {
     {favInfo.map((menuItem)=> {
         const {name, country, icon, degree, description} = menuItem;
         return (
-          <div className={styles.display}>
-            <div className={styles.name} >
-                <h4>{name}</h4><h4>,</h4>
-                <h4>{country}</h4>
-            </div>
-            <div className={styles.icon}>
-                <img src={icon} alt={name} className={styles.photo}/>
-                <h1 className={styles.degree}>{degree}<sup className={styles.sup}>o</sup><h1 className={styles.celcius}>C</h1></h1>
-                <h1 className={styles.description}>{titleCase(description) }</h1>
-            </div>
-            <div className={styles.favIcon}>
-                <BsFillHeartFill/>
-            </div>
-          </div>
+          <table className={styles.ContentTable}>
+            <tr className={styles.column} onClick={(e) =>{handleClick(e,name)}}>
+              <td className={styles.column1}>{name}, {country}</td>
+              <td className={styles.column2}> <img src={icon} alt={name} className={styles.photo}/></td>
+              <td className={styles.column2}>  <h1 className={styles.degree}>{degrees? degree : Math.floor((degree * 1.8) + 32)}<sup className={styles.sup}>o</sup><h1 className={styles.celcius}>{ degrees ? 'C' : 'F'}</h1></h1></td>
+              <td className={styles.column2}> <h1 className={styles.description}>{titleCase(description) }</h1></td>
+              <td className={styles.column3}> <BsFillHeartFill className={styles.heartsColour}/></td>
+            </tr>
+          </table>
         )
       })}
     </div>}

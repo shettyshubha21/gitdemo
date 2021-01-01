@@ -5,9 +5,16 @@ import Modal from '../Modal/Modal';
 import { HiSearch } from "react-icons/hi";
 import { useHistory } from "react-router-dom";
 
-const RecentSearch = ({searchInfo, setSearchInfo, favInfo, setFavInfo, setSelectedIndex, degree, setDegree}) => {
+const RecentSearch = ({searchInfo, setSearchInfo, favInfo, setFavInfo, setSelectedIndex, degrees, setDegrees, weatherData, handleChange, form, setForm}) => {
 const [clear,setClear] = useState(false);
 let history = useHistory();
+
+const handleClick  = async (e, city) => {
+  await setForm({city:city});
+  console.log(city);
+  weatherData(e, city);
+  history.push("/");
+}
 
 function titleCase(str) {
   var splitStr = str.toLowerCase().split(' ');
@@ -39,15 +46,18 @@ useEffect (() => {
 
 return (
 <div>
-<div>
+<div >
+<div className={styles.logo}></div>
   <form className={styles.searchField}>
+  
     <input
       type="text"
       placeholder="Search city"
       name="city"
+      onChange={(e) => handleChange(e)}
       
     />
-    <button onClick={()=>{history.push("/")} } >
+    <button onClick={(e)=>{history.push("/"); weatherData(e)} } >
       {<HiSearch/>}
     </button>
   </form>
@@ -69,20 +79,17 @@ return (
     {searchInfo.map((menuItem)=> {
         const {name, country, icon, degree, description, isFav} = menuItem;
         return (
-          <div className={styles.display}>
-            <div className={styles.name} >
-                <h4>{name}</h4><h4>,</h4>
-                <h4>{country}</h4>
-            </div>
-            <div className={styles.icon}>
-                <img src={icon} alt={name} className={styles.photo}/>
-                <h1 className={styles.degree}>{degree}<sup className={styles.sup}>o</sup><h1 className={styles.celcius}>C</h1></h1>
-                <h1 className={styles.description}>{titleCase(description) }</h1>
-            </div>
-            <div className={styles.favIcon}>
-            {isFav ? <BsFillHeartFill onClick={() => {const changeFav = favInfo.filter((ele) => ele.name !== name); setFavInfo(changeFav);} }/> : <BsHeart/> }
-            </div>
-          </div>
+          
+         <table className={styles.ContentTable}>
+            <tr className={styles.column} onClick={(e) =>{handleClick(e,name); console.log(name)}}>
+              <td className={styles.column1}>{name}, {country}</td>
+              <td className={styles.column2}> <img src={icon} alt={name} className={styles.photo}/></td>
+              <td className={styles.column2}>  <h1 className={styles.degree}>{degrees? degree : Math.floor((degree * 1.8) + 32)}<sup className={styles.sup}>o</sup><h1 className={styles.celcius}>{ degrees ? 'C' : 'F'}</h1></h1></td>
+              <td className={styles.column2}> <h1 className={styles.description}>{titleCase(description) }</h1></td>
+              <td className={styles.column3}>  {isFav ? <BsFillHeartFill className={styles.heartsColour} onClick={() => {const changeFav = favInfo.filter((ele) => ele.name !== name); setFavInfo(changeFav);} }/> : <BsHeart className={styles.heartColour}/> }</td>
+            </tr>
+          </table>
+         
         )
       })}
       </div>
